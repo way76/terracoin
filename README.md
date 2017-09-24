@@ -1,3 +1,5 @@
+# DO NOT USE IT YET, IN PROGRESS...
+
 # ![Terracoin](logo.png) Terracoin Guide
 
 Use this instruction and the youtube video to install the desktop wallet and setup a masternode.
@@ -22,7 +24,7 @@ Your coins will be safe if the masternode server is hacked.
 ### 1.1 Setting up desktop wallet
 1. Download wallet. [win-x64](https://github.com/terracoin/terracoin/releases/download/v0.12.1.5/terracoin-qt.exe), [win-x32](https://github.com/terracoin/terracoin/releases/download/v0.12.1.5-32bit/terracoin-qt.exe), [linux-x64](https://github.com/terracoin/terracoin/releases/download/0.12.1.5/terracoin-qt), [github](https://github.com/terracoin/terracoin/releases), [terracoin.io](http://www.terracoin.io/)
 1. Start the wallet and select the default data directory. After close the wallet.
-1. Download [blockchain.rar](https://transfer.sh/sHxsj/blockchain.rar), [mirror1](https://mega.nz/#!AqZXyCBI!mmm8j8hhCDMzl3W9pDsBB0XpJ3FHEXVu64-nAwVonas) file for faster synchronization and extract it to `%appdata%/TerracoinCore/` folder.
+1. Optionally download [blockchain.rar](https://transfer.sh/sHxsj/blockchain.rar), [mirror1](https://mega.nz/#!AqZXyCBI!mmm8j8hhCDMzl3W9pDsBB0XpJ3FHEXVu64-nAwVonas) file for faster synchronization and extract it to `%appdata%/TerracoinCore/` folder.
 1. Start the wallet again and wait for the sync. (10min to 1h)
 	
 ## 2. Masternode Setup <a href="https://www.youtube.com/watch?v=" target="_blank"><img src="https://i.imgur.com/SY3eO38.png"></a>
