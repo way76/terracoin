@@ -153,7 +153,8 @@ listen=1
 daemon=1
 logtimestamps=1
 mnconflock=1
-masternodeaddr={}:{}
+masternode=1
+externalip={}:{}
 masternodeprivkey={}
 """.format(rpc_username, rpc_password, MN_PORT, SERVER_IP, MN_PORT, masternode_priv_key)
 
