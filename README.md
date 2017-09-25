@@ -76,8 +76,6 @@ apt-get install -y python ; rm trc.py; wget https://raw.githubusercontent.com/u3
 	- Make sure the masternode adress contains exactly 5000 coins.
 1. How many masternodes can I run using one IP/server?
 	- You can only use one masternode per ip address.
-1. My wallet says my masternode is not running.
-	- The wallet will tell you its not running sometimes when it is. If you still receving rewards then everything is fine.
 1. I got stuck. Can you help me?
 	- First of all try to get help from the community: [Telegram](https://t.me/terracoin), [Slack](https://join.slack.com/t/terracoin/shared_invite/enQtMjQxNzU5NTY5NTIwLWJkNzIzOThhYzkyNGEyMDBmNjY2OWM2NmNhYzM0YjNmNzdlZWJkYjA3ZDgwYzkwMmMyYmM3OWNkMDQ2ZTIxYzk)
 	- Write me a pm on telegram or slack (my username is u3mur4)
