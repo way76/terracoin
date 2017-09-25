@@ -134,7 +134,7 @@ def setup_masternode():
     print_info("Setting up masternode...")
     run_command("useradd --create-home -G sudo mn1")
     
-    print_info("Open your desktop wallet config file (%appdata%/terracoincore/terracoin.conf) and copy\n    your rpc username and password! If it is not there create one! E.g.:\n\trpcuser=[SomeUserName]\n\trpcpassword=[DifficultAndLongPassword]")
+    print_info("Open your desktop wallet config file (%appdata%/TerracoinCore/terracoin.conf) and copy\n    your rpc username and password! If it is not there create one! E.g.:\n\trpcuser=[SomeUserName]\n\trpcpassword=[DifficultAndLongPassword]")
     rpc_username = raw_input("rpcuser: ")
     rpc_password = raw_input("rpcpassword: ")
 
