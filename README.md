@@ -19,7 +19,7 @@ Your coins will be safe if the masternode server is hacked.
 * [3. FAQ](#3-faq)
 * [4. The last and the most important step](#4-support)
 
-## 1. Desktop Wallet Preparation <a href="https://www.youtube.com/watch?v=" target="_blank"><img src="https://i.imgur.com/SY3eO38.png"></a>
+## 1. Desktop Wallet Preparation <a href="https://www.youtube.com/watch?v=HAF1NPFsb8Q" target="_blank"><img src="https://i.imgur.com/SY3eO38.png"></a>
 
 ### 1.1 Setting up desktop wallet
 1. Download wallet. [win-x64](https://github.com/terracoin/terracoin/releases/download/v0.12.1.5/terracoin-qt.exe), [win-x32](https://github.com/terracoin/terracoin/releases/download/v0.12.1.5-32bit/terracoin-qt.exe), [linux-x64](https://github.com/terracoin/terracoin/releases/download/0.12.1.5/terracoin-qt), [github](https://github.com/terracoin/terracoin/releases), [terracoin.io](http://www.terracoin.io/)
