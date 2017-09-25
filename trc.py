@@ -138,7 +138,7 @@ def setup_masternode():
     rpc_username = raw_input("rpcuser: ")
     rpc_password = raw_input("rpcpassword: ")
 
-    print_info("Open your wallet console (Help => Debug window => Console) and create a new masternode private key: masternode genkey")
+    print_info("Open your wallet console (Tools => Debug Console) and create a new masternode private key: masternode genkey")
     masternode_priv_key = raw_input("masternodeprivkey: ")
     global PRIVATE_KEY
     PRIVATE_KEY = masternode_priv_key
