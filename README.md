@@ -1,5 +1,3 @@
-# DO NOT USE IT YET, IN PROGRESS...
-
 # ![Terracoin](logo.png) Terracoin Guide
 
 Use this instruction and the youtube video to install the desktop wallet and setup a masternode.
@@ -27,7 +25,7 @@ Your coins will be safe if the masternode server is hacked.
 1. Optionally download [blockchain.rar](https://transfer.sh/sHxsj/blockchain.rar), [mirror1](https://mega.nz/#!AqZXyCBI!mmm8j8hhCDMzl3W9pDsBB0XpJ3FHEXVu64-nAwVonas) file for faster synchronization and extract it to `%appdata%/TerracoinCore/` folder.
 1. Start the wallet again and wait for the sync. (10min to 1h)
 	
-## 2. Masternode Setup <a href="https://www.youtube.com/watch?v=" target="_blank"><img src="https://i.imgur.com/SY3eO38.png"></a>
+## 2. Masternode Setup <a href="https://www.youtube.com/watch?v=-Yy3iZsuBK4" target="_blank"><img src="https://i.imgur.com/SY3eO38.png"></a>
 
 ### 2.1 Send the coins to your wallet
 1. Create and copy a new receiving address. (File => Receiving adresess => New)
