@@ -84,8 +84,8 @@ apt-get install -y python ; rm trc.py; wget https://raw.githubusercontent.com/u3
 1. How many masternodes can I run using one IP/server?
 	- You can only use one masternode per ip address.
 1. I got stuck. Can you help me?
-	- First of all try to get help from the community: [Telegram](https://t.me/terracoin), [Slack](https://join.slack.com/t/terracoin/shared_invite/enQtMjQxNzU5NTY5NTIwLWJkNzIzOThhYzkyNGEyMDBmNjY2OWM2NmNhYzM0YjNmNzdlZWJkYjA3ZDgwYzkwMmMyYmM3OWNkMDQ2ZTIxYzk)
-	- Write me a pm on telegram or slack (my username is u3mur4)
+	- First of all try to get help from the [community](http://terracoin.io/community.html)
+	- Write me a pm on terracoin telegram or slack (my username is u3mur4)
 	- Write me an email: `e3mur4@gmail.com`
 
 # 4. Support
