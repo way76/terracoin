@@ -159,6 +159,7 @@ masternodeprivkey={}
 """.format(rpc_username, rpc_password, MN_PORT, SERVER_IP, MN_PORT, masternode_priv_key)
 
     run_command('su - mn1 -c "{}" '.format("mkdir -p /home/mn1/.terracoincore/"))
+    run_command('touch /home/mn1/.terracoincore/terracoin.conf')
     
     print_info("Saving config file...")
     with open('/home/mn1/.terracoincore/terracoin.conf', 'w') as f:
