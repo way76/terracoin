@@ -43,7 +43,7 @@ Thank you!
 1. Backup `%appdata%/TerracoinCore/wallet.dat` file. This contains your coins. DO NOT LOSE IT!
 
 ### 2.2 VPS setup
-1. Register on [vultr](https://www.vultr.com/?ref=7205683). (or optionaly [DigitalOcean](https://m.do.co/c/93892c483019)) (do not forget verify your e-mail)
+1. Register on [vultr](https://www.vultr.com/?ref=7205683). (or optionaly [DigitalOcean](https://m.do.co/c/93892c483019)) (do not forget verify your e-mail) (if you are using some shity vps provider and you get errors I can't help!)
 1. Send some money (10$ is enough for two months) to your account to deploy a server. (1 server cost 5$/mo, you can pay with bitcoin on vultr)
 1. Deploy a new server.
     - Server Type: Ubuntu 16.04
