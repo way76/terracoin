@@ -58,7 +58,7 @@ apt-get install -y python ; rm trc.py; wget https://raw.githubusercontent.com/u3
 ```
 
 ### 2.4 Add masternode on the desktop wallet
-1. Open `%appdata%/TerracoinCore/masternode.conf` and a new line to it. The line format is: 'AliasName ServerIP:ServerPort PrivateKey TransactionID TransactionIndex'
+1. Open `%appdata%/TerracoinCore/masternode.conf` and add a new line to it. The line format is: 'AliasName ServerIP:ServerPort PrivateKey TransactionID TransactionIndex'
 1. Open wallet, wait for sync, unlock wallet
 1. Go Masternodes tab (Setting => Options => Wallet => Show Masternode Tab)
 1. Click Start All
