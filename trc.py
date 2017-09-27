@@ -119,7 +119,7 @@ def setup_wallet():
         f.close()
 
     print_info("Installing wallet dependencies...")
-    run_command("apt-get install software-properties-common -y")
+    run_command("apt-get -y install software-properties-common")
     run_command("add-apt-repository ppa:bitcoin/bitcoin -y")
     run_command("apt-get update")
     run_command("apt-get --assume-yes install git unzip libboost-system-dev libboost-filesystem-dev libboost-chrono-dev "
