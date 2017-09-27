@@ -98,7 +98,7 @@ def chech_root():
 
 def secure_server():
     print_info("Securing server...")
-    run_command("apt-get install ufw")
+    run_command("apt-get --assume-yes install ufw")
     run_command("ufw allow OpenSSH")
     run_command("ufw allow {}".format(MN_PORT))
     run_command("ufw default deny incoming")
