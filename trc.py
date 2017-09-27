@@ -81,7 +81,7 @@ def print_welcome():
     print(GREEN + "   | |  __/ |  | | | (_| | (_| (_) | | | | |" + DEFAULT_COLOR)
     print(GREEN + "   |_|\___|_|  |_|  \__,_|\___\___/|_|_| |_|" + DEFAULT_COLOR)
     print(GREEN + "                                            " + DEFAULT_COLOR)
-    print_info("Terracoin masternode installer v1.0")
+    print_info("Terracoin masternode installer v1.1")
 
 def update_system():
     print_info("Updating the system...")
@@ -98,6 +98,7 @@ def chech_root():
 
 def secure_server():
     print_info("Securing server...")
+    run_command("apt-get install ufw")
     run_command("ufw allow OpenSSH")
     run_command("ufw allow {}".format(MN_PORT))
     run_command("ufw default deny incoming")
@@ -118,11 +119,15 @@ def setup_wallet():
         f.close()
 
     print_info("Installing wallet dependencies...")
+    run_command("apt-get install software-properties-common -y")
     run_command("add-apt-repository ppa:bitcoin/bitcoin -y")
     run_command("apt-get update")
     run_command("apt-get --assume-yes install git unzip libboost-system-dev libboost-filesystem-dev libboost-chrono-dev "
                 "libboost-program-options-dev libboost-test-dev libboost-thread-dev software-properties-common libdb4.8-dev "
-                "libdb4.8++-dev libminiupnpc-dev libevent-dev libzmq3-dev")
+                "libdb4.8++-dev libminiupnpc-dev libevent-dev libzmq3-dev libboost-chrono1.58.0 libboost-filesystem1.58.0 "
+                "libboost-system1.58.0 libboost-thread1.58.0 libdb4.8++ libevent-2.0-5 libevent-core-2.0-5 libevent-pthreads-2.0-5 "
+                "libminiupnpc10 libsodium18 libboost-chrono1.58.0 libboost-filesystem1.58.0 libboost-system1.58.0 "
+                "libboost-thread1.58.0 libdb4.8++ libevent-2.0-5 libevent-core-2.0-5 libevent-pthreads-2.0-5 libminiupnpc10 libsodium18 libzmq5")
 
     print_info("Downloading wallet...")
     run_command("wget --continue https://github.com/terracoin/terracoin/releases/download/0.12.1.5/terracoind -O /usr/local/bin/terracoind")
