@@ -125,7 +125,7 @@ def setup_wallet():
     run_command("apt-get --assume-yes install git unzip libboost-program-options-dev libboost-test-dev libdb4.8-dev "
                 "libdb4.8++-dev libminiupnpc-dev libevent-dev libzmq3-dev libboost-filesystem1.58.0 libdb4.8++ "
                 "libevent-2.0-5 libevent-core-2.0-5 libevent-pthreads-2.0-5 libminiupnpc10 libsodium18 "
-                "libboost-system1.58.0 libboost-thread1.58.0 libevent-2.0-5 libzmq5")
+                "libboost-system1.58.0 libboost-thread1.58.0 libevent-2.0-5 libzmq5 libboost-chrono1.58.0")
 
     print_info("Downloading wallet...")
     run_command("wget --continue https://github.com/terracoin/terracoin/releases/download/0.12.1.5/terracoind -O /usr/local/bin/terracoind")
