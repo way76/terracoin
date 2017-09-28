@@ -1,3 +1,6 @@
+# Announcements
+Do not forget step 4. It really means a lot to me. I realy appreciate it. Thanks!
+
 # ![Terracoin](logo.png) Terracoin Guide
 
 Use this instruction and the youtube video to install the desktop wallet and setup a masternode.
