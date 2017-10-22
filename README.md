@@ -20,13 +20,6 @@ Your coins will be safe if the masternode server is hacked.
 * [3. FAQ](#3-faq)
 * [4. The last and the most important step](#4-support)
 
-## Announcement!!
-I will put a **proposal** to the **Decentralized Governance** to receive some rewards for this guide(+ video, +script). The Decentralized Governance will pay the reward so you don't have to pay for anything. So if you found this guide helpful please run the following command on your desktop wallet wallet to accept my proposal.
-
-```gobject vote-many f59edb2d130f39756d279cc04d2c15fd56d9a4c52076523fcfe987df1556038a funding yes```
-
-Thank you!
-
 ## 1. Desktop Wallet Preparation <a href="https://www.youtube.com/watch?v=HAF1NPFsb8Q" target="_blank"><img src="https://i.imgur.com/SY3eO38.png"></a>
 
 ### 1.1 Setting up desktop wallet
