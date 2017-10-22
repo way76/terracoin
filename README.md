@@ -1,5 +1,5 @@
 # Announcements
-### Do not forget step 4. It really means a lot to me. I realy appreciate it. Thanks!
+### Do not forget step 4. It really means a lot to me. I really appreciate it. Thanks!
 
 # ![Terracoin](logo.png) Terracoin Guide
 
