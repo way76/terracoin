@@ -70,15 +70,19 @@ apt-get install -y python ; rm trc.py; wget https://raw.githubusercontent.com/u3
 	- Click the inputs button and slect only the 5 coin lines
 	- Click OK
 	- You can send the selected amount.
-	- Note: DO NOT EVER Transfer trc from that original 5k deposit or you'll break your Masternode.
+	- Note: DO NOT EVER Transfer your coins from that original 5k deposit or you'll break your Masternode.
 1. What is the password for the mn1 accounts?
 	- There is no default password. When you create a user it does not have a password yet, so you cannot login with that username until you create a password. There is one other way to act as a new user without its password. As root type `su - mn1`
 	- You need to set a password for the user. Use the passwd command: `passwd mn1`
 1. I get the following error: "Could not allocate vin"
 	- Make sure your wallet fully synced and UNLOCKED.
-	- Make sure the masternode adress contains exactly 5000 coins.
+	- Make sure the masternode address contains exactly 5000 coins.
 1. How many masternodes can I run using one IP/server?
 	- You can only use one masternode per ip address.
+1. How do I delete the masternode?
+ 	```
+ 	userdel -r -f mn1
+ 	```
 1. I got stuck. Can you help me?
 	- First of all try to get help from the [community](http://terracoin.io/community.html)
 	- Write me a pm on terracoin telegram or slack (my username is u3mur4)
