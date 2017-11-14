@@ -57,8 +57,8 @@ def remove_lines(lines):
         sys.stdout.write(CURSOR_UP_ONE + '\r' + ERASE_LINE)
         sys.stdout.flush()
 
-def run_command_as(user, command)
-    run_command('su - {} -c "{}" '.format(user, command)
+def run_command_as(user, command):
+    run_command('su - {} -c "{}" '.format(user, command))
 
 def run_command(command):
     out = Popen(command, stderr=STDOUT, stdout=PIPE, shell=True)
@@ -143,7 +143,7 @@ def setup_wallet():
                 "libboost-system1.58.0 libboost-thread1.58.0 libevent-2.0-5 libzmq5 libboost-chrono1.58.0")
 
     print_info("Downloading wallet...")
-    run_command("wget --continue https://github.com/terracoin/terracoin/releases/download/0.12.1.5/terracoind -O /usr/local/bin/{}".format(MN_DAEMON)
+    run_command("wget --continue https://github.com/terracoin/terracoin/releases/download/0.12.1.5/terracoind -O /usr/local/bin/{}".format(MN_DAEMON))
     run_command("chmod +x /usr/local/bin/{}".format(MN_DAEMON))
     run_command("wget --continue https://github.com/terracoin/terracoin/releases/download/0.12.1.5/terracoin-cli -O /usr/local/bin/{}".format(MN_CLI))
     run_command("chmod +x /usr/local/bin/{}".format(MN_CLI))
