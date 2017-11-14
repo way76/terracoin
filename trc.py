@@ -74,7 +74,7 @@ def run_command(command):
         
         w, h = get_terminal_size()
         lines.append(line.strip().encode('string_escape')[:w-3] + "\n")
-        if(len(lines) >= 5):
+        if(len(lines) >= 9):
             del lines[0]
 
         # print lines again
