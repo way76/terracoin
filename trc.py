@@ -9,7 +9,7 @@ import os
 import time
 from urllib2 import urlopen
 
-BOOTSTRAP_URL = "https://transfer.sh/sHxsj/blockchain.rar"
+BOOTSTRAP_URL = "https://dl.dropboxusercontent.com/s/ap0itmco128av2a/terracoin_blockchain_20171114.rar"
 
 MN_USERNAME = "mn1"
 MN_PORT = 13333
@@ -170,7 +170,7 @@ masternodeprivkey={}
     
     print_info("Saving config file...")
     with open('/home/mn1/.terracoincore/terracoin.conf', 'w') as f:
-        f.write(config)      
+        f.write(config)
         
     run_command('chown mn1:mn1 /home/mn1/.terracoincore/terracoin.conf')
 
@@ -197,8 +197,7 @@ def autostart_masternode():
         p = Popen('echo "{}" | crontab -u mn1 -'.format(''.join(lines)), stderr=STDOUT, stdout=PIPE, shell=True)
         p.wait()
     
-
-def porologe():
+def end():
 
     mn_base_data = """
     Alias: Masternode1
@@ -234,7 +233,7 @@ def main():
     setup_wallet()
     setup_masternode()
     autostart_masternode()
-    porologe()
+    end()
 
 if __name__ == "__main__":
     main()
