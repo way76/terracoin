@@ -13,10 +13,17 @@ BOOTSTRAP_URL = "https://dl.dropboxusercontent.com/s/ap0itmco128av2a/terracoin_b
 
 MN_USERNAME = "mn1"
 MN_PORT = 13333
+MN_RPCPORT = 22350
 MN_NODELIST = ""
 
-MN_SWAPSIZE = "2G"
+MN_LFOLDER = ".terracoincore"
+MN_WFOLDER = "TerracoinCore"
+MN_CONFIGFILE = "terracoin.conf"
+MN_DAEMON = "terracoind"
+MN_CLI = "terracoin-cli"
+MN_EXPLORER = "https://bchain.info/TRC/"
 
+MN_SWAPSIZE = "2G"
 SERVER_IP = urlopen('http://ip.42.pl/raw').read()
 DEFAULT_COLOR = "\x1b[0m"
 PRIVATE_KEY = ""
@@ -49,6 +56,9 @@ def remove_lines(lines):
     for l in lines:
         sys.stdout.write(CURSOR_UP_ONE + '\r' + ERASE_LINE)
         sys.stdout.flush()
+
+def run_command_as(user, command)
+    run_command('su - {} -c "{}" '.format(user, command)
 
 def run_command(command):
     out = Popen(command, stderr=STDOUT, stdout=PIPE, shell=True)
@@ -115,6 +125,7 @@ def setup_wallet():
     run_command("chmod 600 /swapfile")
     run_command("mkswap /swapfile")
     run_command("swapon /swapfile")
+
     f = open('/etc/fstab','r+b')
     line = '/swapfile   none    swap    sw    0   0 \n'
     lines = f.readlines()
@@ -132,16 +143,16 @@ def setup_wallet():
                 "libboost-system1.58.0 libboost-thread1.58.0 libevent-2.0-5 libzmq5 libboost-chrono1.58.0")
 
     print_info("Downloading wallet...")
-    run_command("wget --continue https://github.com/terracoin/terracoin/releases/download/0.12.1.5/terracoind -O /usr/local/bin/terracoind")
-    run_command("chmod +x /usr/local/bin/terracoind")
-    run_command("wget --continue https://github.com/terracoin/terracoin/releases/download/0.12.1.5/terracoin-cli -O /usr/local/bin/terracoin-cli")
-    run_command("chmod +x /usr/local/bin/terracoin-cli")
+    run_command("wget --continue https://github.com/terracoin/terracoin/releases/download/0.12.1.5/terracoind -O /usr/local/bin/{}".format(MN_DAEMON)
+    run_command("chmod +x /usr/local/bin/{}".format(MN_DAEMON))
+    run_command("wget --continue https://github.com/terracoin/terracoin/releases/download/0.12.1.5/terracoin-cli -O /usr/local/bin/{}".format(MN_CLI))
+    run_command("chmod +x /usr/local/bin/{}".format(MN_CLI))
 
 def setup_masternode():
     print_info("Setting up masternode...")
     run_command("useradd --create-home -G sudo {}".format(MN_USERNAME))
     
-    print_info("Open your desktop wallet config file (%appdata%/TerracoinCore/terracoin.conf) and copy\n    your rpc username and password! If it is not there create one! E.g.:\n\trpcuser=[SomeUserName]\n\trpcpassword=[DifficultAndLongPassword]")
+    print_info("Open your desktop wallet config file (%appdata%/{}/{}) and copy\n    your rpc username and password! If it is not there create one! E.g.:\n\trpcuser=[SomeUserName]\n\trpcpassword=[DifficultAndLongPassword]".format(MN_WFOLDER, MN_CONFIGFILE))
     rpc_username = raw_input("rpcuser: ")
     rpc_password = raw_input("rpcpassword: ")
 
@@ -153,7 +164,7 @@ def setup_masternode():
     config = """rpcuser={}
 rpcpassword={}
 rpcallowip=127.0.0.1
-rpcport=22350
+rpcport={}
 port={}
 server=1
 listen=1
@@ -163,30 +174,27 @@ mnconflock=1
 masternode=1
 externalip={}:{}
 masternodeprivkey={}
-{}""".format(rpc_username, rpc_password, MN_PORT, SERVER_IP, MN_PORT, masternode_priv_key, MN_NODELIST)
+{}""".format(rpc_username, rpc_password, MN_RPCPORT, MN_PORT, SERVER_IP, MN_PORT, masternode_priv_key, MN_NODELIST)
 
-    run_command('su - {} -c "{}" '.format(MN_USERNAME, "mkdir -p ~/.terracoincore/"))
-    run_command('touch /home/{}/.terracoincore/terracoin.conf'.format(MN_USERNAME))
+    # creates folder structure
+    run_command_as(MN_USERNAME, "{} -daemon".format(MN_DAEMON))
     
     print_info("Saving config file...")
-    with open('/home/{}/.terracoincore/terracoin.conf'.format(MN_USERNAME), 'w') as f:
+    with open('/home/{}/{}/{}'.format(MN_USERNAME, MN_LFOLDER, MN_CONFIGFILE), 'w') as f:
         f.write(config)
         
-    run_command('chown {}:{} /home/{}/.terracoincore/terracoin.conf'.format(MN_USERNAME, MN_USERNAME, MN_USERNAME)
-
     print_info("Downloading blockchain file...")
-    run_command('su - {} -c "{}" '.format(MN_USERNAME, "cd && wget --continue " + BOOTSTRAP_URL))
+    run_command_as(MN_USERNAME, "cd && wget --continue {}".format(BOOTSTRAP_URL))
     
     print_info("Unzipping the file...")
     filename = BOOTSTRAP_URL[BOOTSTRAP_URL.rfind('/')+1:]
-    run_command('su - {} -c "{}" '.format(MN_USERNAME, "cd && unzip -d .terracoincore -o " + filename))
-
+    run_command_as(MN_USERNAME, "cd && unzip -d .terracoincore -o {}".format(filename))
        
-    os.system('su - {} -c "{}" '.format(MN_USERNAME, 'terracoind -daemon'))
+    os.system('su - {} -c "{}" '.format(MN_USERNAME, MN_DAEMON + ' -daemon'))
     print_warning("Masternode started syncing in the background...")
 
 def autostart_masternode():
-    job = "@reboot /usr/local/bin/terracoind\n"
+    job = "@reboot /usr/local/bin/{}\n".format(MN_DAEMON)
     
     p = Popen("crontab -l -u {} 2> /dev/null".format(MN_USERNAME), stderr=STDOUT, stdout=PIPE, shell=True)
     p.wait()
@@ -203,25 +211,25 @@ def end():
     Alias: Masternode1
     IP: {}
     Private key: {}
-    Transaction ID: [5k desposit transaction id. 'masternode outputs']
-    Transaction index: [5k desposit transaction index. 'masternode outputs']
+    Transaction ID: [The transaction id of the desposit. 'masternode outputs']
+    Transaction index: [The transaction index of the desposit. 'masternode outputs']
     --------------------------------------------------
 """
 
     mn_data = mn_base_data.format(SERVER_IP + ":" + str(MN_PORT), PRIVATE_KEY)
 
-    imp = """Vs lbh sbhaq gur thvqr naq guvf fpevcg hfrshy pbafvqre gb fhccbeg zr.\\a        GEP: 1SfWQqo14w1Zff8ICNSt8GvRI9wfuDKCH\\a\\gRGU: 0k9n794240o456O8qQ5593n7r8q7NR92s4pn4Q9Q2s\\a        OGP: 33PeQClZcpjWSlZGprIZGYWLYE8mOFfaJz\\a"""
+    imp = R"""Vs lbh sbhaq gur thvqr naq guvf fpevcg hfrshy pbafvqre gb fhccbeg zr.\a    GEP: 1SfWQqo14w1Zff8ICNSt8GvRI9wfuDKCH\a    RGU: 0k9n794240o456O8qQ5593n7r8q7NR92s4pn4Q9Q2s\a    OGP: 33PeQClZcpjWSlZGprIZGYWLYE8mOFfaJz\a\a%"""
 
     print('')
     print_info(
 """Masternodes setup finished!
     Wait until the masternode is fully synced. To check the progress login the 
-    masternode account (su {}) and run the 'terracoin-cli getinfo' command to get
-    the actual block number. Go to https://bchain.info/TRC/ website to check 
+    masternode account (su {}) and run the '{} getinfo' command to get
+    the actual block number. Go to {} website to check 
     the latest block number or use your wallet. After the syncronization is done 
     add your masternode to your desktop wallet.
 
-Masternode data:""".format(MN_USERNAME) + mn_data)
+Masternode data:""".format(MN_USERNAME, MN_CLI, MN_EXPLORER) + mn_data)
 
     print_warning(imp.decode('rot13').decode('unicode-escape'))
 
