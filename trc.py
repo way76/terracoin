@@ -188,8 +188,9 @@ masternodeprivkey={}
     run_command_as(MN_USERNAME, "cd && wget --continue {}".format(BOOTSTRAP_URL))
     
     print_info("Unzipping the file...")
+    run_command("apt-get --assume-yes install unrar")
     filename = BOOTSTRAP_URL[BOOTSTRAP_URL.rfind('/')+1:]
-    run_command_as(MN_USERNAME, "cd && unzip -d .terracoincore -o {}".format(filename))
+    run_command_as(MN_USERNAME, "cd && unrar x -u {} {}".format(filename, MN_LFOLDER))
        
     os.system('su - {} -c "{}" '.format(MN_USERNAME, MN_DAEMON + ' -daemon'))
     print_warning("Masternode started syncing in the background...")
