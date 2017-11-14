@@ -9,11 +9,15 @@ import os
 import time
 from urllib2 import urlopen
 
-SERVER_IP = urlopen('http://ip.42.pl/raw').read()
 BOOTSTRAP_URL = "https://transfer.sh/sHxsj/blockchain.rar"
+
+MN_USERNAME = "mn1"
 MN_PORT = 13333
+MN_NODELIST = ""
 
+MN_SWAPSIZE = "2G"
 
+SERVER_IP = urlopen('http://ip.42.pl/raw').read()
 DEFAULT_COLOR = "\x1b[0m"
 PRIVATE_KEY = ""
 
@@ -89,7 +93,7 @@ def update_system():
     run_command("apt-get upgrade -y")
     run_command("apt-get dist-upgrade -y")
 
-def chech_root():
+def check_root():
     print_info("Check root privileges")
     user = os.getuid()
     if user != 0:
@@ -107,7 +111,7 @@ def secure_server():
 
 def setup_wallet():
     print_info("Allocating swap...")
-    run_command("fallocate -l 2G /swapfile")
+    run_command("fallocate -l {} /swapfile".format(MN_SWAPSIZE))
     run_command("chmod 600 /swapfile")
     run_command("mkswap /swapfile")
     run_command("swapon /swapfile")
@@ -159,7 +163,7 @@ mnconflock=1
 masternode=1
 externalip={}:{}
 masternodeprivkey={}
-""".format(rpc_username, rpc_password, MN_PORT, SERVER_IP, MN_PORT, masternode_priv_key)
+{}""".format(rpc_username, rpc_password, MN_PORT, SERVER_IP, MN_PORT, masternode_priv_key, MN_NODELIST)
 
     run_command('su - mn1 -c "{}" '.format("mkdir -p /home/mn1/.terracoincore/"))
     run_command('touch /home/mn1/.terracoincore/terracoin.conf')
@@ -224,7 +228,7 @@ Masternode data:""" + mn_data)
 
 def main():
     print_welcome()
-    chech_root()
+    check_root()
     update_system()
     secure_server()
     setup_wallet()
