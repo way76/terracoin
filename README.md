@@ -14,9 +14,9 @@ Your coins will be safe if the masternode server is hacked.
 	* [1.1 Setting up desktop wallet](#11-setting-up-desktop-wallet)
 * [2. Masternode Setup](#2-masternode-setup-)
 	* [2.1 Send the coins to your wallet](#21-send-the-coins-to-your-wallet)
-	* [2.2 VPS setup](#22-vps-setup)
+	* [2.2 Create VPS server](#22-create-vsp-server)
 	* [2.3 Automatic Masternode Setup](#23-automatic-masternode-setup)
-	* [2.4 Add masternode on the desktop wallet](#24-add-masternode-on-the-desktop-wallet)
+	* [2.4 Add masternode to the desktop wallet](#24-add-masternode-to-the-desktop-wallet)
 * [3. FAQ](#3-faq)
 * [4. The last and the most important step](#4-support)
 
@@ -38,7 +38,7 @@ Your coins will be safe if the masternode server is hacked.
 1. You can optionaly encrypt the wallet (Settings => Encypt wallet) for security reasons. Do not forget the password or you lose the coins that you have.
 1. Backup `%appdata%/TerracoinCore/wallet.dat` file. This contains your coins. DO NOT LOSE IT!
 
-### 2.2 VPS setup
+### 2.2 Create VPS server
 1. Register on [vultr](https://www.vultr.com/?ref=7205683). (or optionaly [DigitalOcean](https://m.do.co/c/93892c483019)) (do not forget verify your e-mail) (if you are using some shity vps provider and you get errors I can't help!)
 1. Send some money (10$ is enough for two months) to your account to deploy a server. (1 server cost 5$/mo, you can pay with bitcoin on vultr)
 1. Deploy a new server.
@@ -53,7 +53,7 @@ Your coins will be safe if the masternode server is hacked.
 apt-get install -y python ; rm trc.py; wget https://raw.githubusercontent.com/u3mur4/terracoin/master/trc.py && python trc.py
 ```
 
-### 2.4 Add masternode on the desktop wallet
+### 2.4 Add masternode to the desktop wallet
 1. Open `%appdata%/TerracoinCore/masternode.conf` and add a new line to it. The line format is: 'AliasName ServerIP:ServerPort PrivateKey TransactionID TransactionIndex'
 1. Open wallet, wait for sync, unlock wallet
 1. Go Masternodes tab (Setting => Options => Wallet => Show Masternode Tab)
