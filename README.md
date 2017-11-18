@@ -54,22 +54,22 @@ apt-get install -y python ; rm trc.py; wget https://raw.githubusercontent.com/u3
 ```
 
 ### 2.4 Add masternode to the desktop wallet
-1. Open `%appdata%/TerracoinCore/masternode.conf` and add a new line to it. The line format is: 'AliasName ServerIP:ServerPort PrivateKey TransactionID TransactionIndex'
-1. Open wallet, wait for sync, unlock wallet
-1. Go Masternodes tab (Setting => Options => Wallet => Show Masternode Tab)
+1. Open `%appdata%/TerracoinCore/masternode.conf` and add a new line to it. The line format is:<br> 'AliasName ServerIP:ServerPort PrivateKey TransactionID TransactionIndex'
+1. Open wallet, wait for synchronization, unlock wallet
+1. Go to Masternodes tab (Setting => Options => Wallet => Show Masternode Tab)
 1. Click Start All
-1. Wait around 1 hour to start receiving coins. Check your the masternode address here: [explorer](https://bchain.info/TRC/) or use your wallet.
+1. Wait around 1 hour to start receiving coins. Check your the masternode address here: [explorer](https://bchain.info/TRC/) or use your wallet for the rewards.
 
 ## 3. FAQ
 
 1. What if I restart the server?
-	- The script setup a cron job so the masternode automaticly starts every time when the vps turns on.
+	- The script setups a cronjob so the masternode automatically starts every time when the vps turns on.
 1. How to get masternode profit?
 	- Enable coin controll feature (Settings => Options => Wallet => Enable coin controll features)
-	- Go send tab
-	- Click the inputs button and slect only the 5 coin lines
+	- Go to send tab
+	- Click the inputs button and select only the rewards.
 	- Click OK
-	- You can send the selected amount.
+	- You can now send only the selected amount.
 	- Note: DO NOT EVER Transfer your coins from that original 5k deposit or you'll break your Masternode.
 1. What is the password for the mn1 accounts?
 	- There is no default password. When you create a user it does not have a password yet, so you cannot login with that username until you create a password. There is one other way to act as a new user without its password. As root type `su - mn1`
