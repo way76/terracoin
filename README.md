@@ -14,7 +14,7 @@ Your coins will be safe if the masternode server is hacked.
 	* [1.1 Setting up desktop wallet](#11-setting-up-desktop-wallet)
 * [2. Masternode Setup](#2-masternode-setup-)
 	* [2.1 Send the coins to your wallet](#21-send-the-coins-to-your-wallet)
-	* [2.2 Create VPS server](#22-create-vsp-server)
+	* [2.2 Create VPS server](#22-create-vps-server)
 	* [2.3 Automatic Masternode Setup](#23-automatic-masternode-setup)
 	* [2.4 Add masternode to the desktop wallet](#24-add-masternode-to-the-desktop-wallet)
 * [3. FAQ](#3-faq)
