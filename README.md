@@ -58,7 +58,7 @@ apt-get install -y python ; rm trc.py; wget https://raw.githubusercontent.com/u3
 1. Open wallet, wait for synchronization, unlock wallet
 1. Go to Masternodes tab (Setting => Options => Wallet => Show Masternode Tab)
 1. Click Start All
-1. Wait around 1 hour to start receiving coins. Check your the masternode address here: [explorer](https://bchain.info/TRC/) or use your wallet for the rewards.
+1. Wait around 1 hour to start receiving coins. Check your the masternode address here: [explorer](https://explorer.terracoin.io/) or use your wallet for the rewards.
 
 ## 3. FAQ
 
