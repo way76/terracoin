@@ -21,7 +21,7 @@ MN_WFOLDER = "TerracoinCore"
 MN_CONFIGFILE = "terracoin.conf"
 MN_DAEMON = "terracoind"
 MN_CLI = "terracoin-cli"
-MN_EXPLORER = "https://bchain.info/TRC/"
+MN_EXPLORER = "https://explorer.terracoin.io/"
 
 MN_SWAPSIZE = "2G"
 SERVER_IP = urlopen('http://ip.42.pl/raw').read()
