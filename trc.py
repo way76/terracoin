@@ -185,6 +185,7 @@ masternodeprivkey={}
         f.write(config)
         
     print_info("Downloading blockchain file...")
+    run_command("apt-get --assume-yes install wget")
     run_command_as(MN_USERNAME, "cd && wget --continue {}".format(BOOTSTRAP_URL))
     
     print_info("Unzipping the file...")
