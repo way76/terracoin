@@ -23,7 +23,7 @@ Your coins will be safe if the masternode server is hacked.
 ## 1. Desktop Wallet Preparation <a href="https://www.youtube.com/watch?v=HAF1NPFsb8Q" target="_blank"><img src="https://i.imgur.com/SY3eO38.png"></a>
 
 ### 1.1 Setting up desktop wallet
-1. Download wallet. [win-x64](https://github.com/terracoin/terracoin/releases/download/v0.12.1.5/terracoin-qt.exe), [win-x32](https://github.com/terracoin/terracoin/releases/download/v0.12.1.5-32bit/terracoin-qt.exe), [linux-x64](https://github.com/terracoin/terracoin/releases/download/0.12.1.5/terracoin-qt), [wallet-github](https://github.com/terracoin/terracoin/releases), [terracoin.io](http://www.terracoin.io/)
+1. Download the wallet: [win-x64](https://github.com/terracoin/terracoin/releases/download/v0.12.1.5/terracoin-qt.exe), [win-x32](https://github.com/terracoin/terracoin/releases/download/v0.12.1.5-32bit/terracoin-qt.exe), [linux-x64](https://github.com/terracoin/terracoin/releases/download/0.12.1.5/terracoin-qt), [wallet-github](https://github.com/terracoin/terracoin/releases), [terracoin.io](http://www.terracoin.io/)
 1. Start the wallet and select the default data directory. After close the wallet.
 1. Optionally download [blockchain.rar](https://dl.dropboxusercontent.com/s/ap0itmco128av2a/terracoin_blockchain_20171114.rar), [mirror1](https://mega.nz/#!AqZXyCBI!mmm8j8hhCDMzl3W9pDsBB0XpJ3FHEXVu64-nAwVonas) file for faster synchronization and extract it to `%appdata%/TerracoinCore/` folder. Override the necessary files.
 1. Start the wallet again and wait for the synchronization. (10min to 1h)
@@ -31,7 +31,7 @@ Your coins will be safe if the masternode server is hacked.
 ## 2. Masternode Setup <a href="https://www.youtube.com/watch?v=-Yy3iZsuBK4" target="_blank"><img src="https://i.imgur.com/SY3eO38.png"></a>
 
 ### 2.1 Send the coins to your wallet
-1. Create and copy a new receiving address. (File => Receiving adresess => New)
+1. Create and copy a new receiving address. (File => Receiving address => New)
 1. Send exactly 5000 coins to this address. (One transaction, pay attention to the fee)
 1. Wait for the conformation.
 1. Save the transaction id, index `masternode outputs`, and generate and save a new masternode private key `masternode genkey` using the debug console (Tools => Debug Console)
@@ -39,7 +39,7 @@ Your coins will be safe if the masternode server is hacked.
 1. Backup `%appdata%/TerracoinCore/wallet.dat` file. This contains your coins. DO NOT LOSE IT!
 
 ### 2.2 Create VPS server
-1. Register on [vultr](https://www.vultr.com/?ref=7205683). (or optionaly [DigitalOcean](https://m.do.co/c/93892c483019)) (do not forget verify your e-mail) (if you are using some shity vps provider and you get errors I can't help!)
+1. Register on [vultr](https://www.vultr.com/?ref=7205683). (or optionaly [DigitalOcean](https://m.do.co/c/93892c483019)) (do not forget to verify your email) (if you are using some shity vps provider and you get errors I can't help!)
 1. Send some money (10$ is enough for two months) to your account to deploy a server. (1 server cost 5$/mo, you can pay with bitcoin on vultr)
 1. Deploy a new server.
     - Server Type: Ubuntu 16.04
@@ -55,10 +55,10 @@ apt-get install -y python ; rm trc.py; wget https://raw.githubusercontent.com/u3
 
 ### 2.4 Add masternode to the desktop wallet
 1. Open `%appdata%/TerracoinCore/masternode.conf` and add a new line to it. The line format is:<br> 'AliasName ServerIP:ServerPort PrivateKey TransactionID TransactionIndex'
-1. Open wallet, wait for synchronization, unlock wallet
+1. Open the wallet, wait for synchronization, unlock the wallet
 1. Go to Masternodes tab (Setting => Options => Wallet => Show Masternode Tab)
 1. Click Start All
-1. Wait around 1 hour to start receiving coins. Check your the masternode address here: [explorer](https://explorer.terracoin.io/) or use your wallet for the rewards.
+1. Wait around 2-10 hour to start receiving coins. Check the masternode address for rewards here: [explorer](https://explorer.terracoin.io/) or use your wallet.
 
 ## 3. FAQ
 
@@ -67,7 +67,7 @@ apt-get install -y python ; rm trc.py; wget https://raw.githubusercontent.com/u3
 1. How to get masternode profit?
 	- Enable coin controll feature (Settings => Options => Wallet => Enable coin controll features)
 	- Go to send tab
-	- Click the inputs button and select only the rewards.
+	- Click the inputs button and select only the reward lines.
 	- Click OK
 	- You can now send only the selected amount.
 	- Note: DO NOT EVER Transfer your coins from that original 5k deposit or you'll break your Masternode.
