@@ -88,9 +88,9 @@ def check_root():
         sys.exit(-1)
 
 def fix():
-	print_info("Stopping terracoind....")	
+	print_info("Stopping terracoind...")
 	run_command_as("mn1", "terracoin-cli stop")
-	time.sleep(5)
+	time.sleep(10)
 
 	MN_DAEMON = "terracoind"
 	MN_CLI = "terracoin-cli"
