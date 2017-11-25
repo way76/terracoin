@@ -6,3 +6,4 @@
   ```bash 
   wget https://raw.githubusercontent.com/u3mur4/terracoin/master/watchdog_fix.py && python watchdog_fix.py
   ```
+4. Start your masternode after you vps wallet fully synced.
