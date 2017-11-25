@@ -78,7 +78,7 @@ def print_welcome():
     print(GREEN + "   | |  __/ |  | | | (_| | (_| (_) | | | | |" + DEFAULT_COLOR)
     print(GREEN + "   |_|\___|_|  |_|  \__,_|\___\___/|_|_| |_|" + DEFAULT_COLOR)
     print(GREEN + "                                            " + DEFAULT_COLOR)
-    print_info("Terracoin watchdog_expired path v1.0")
+    print_info("Terracoin watchdog_expired patch v1.0")
 
 def check_root():
     print_info("Check root privileges")
