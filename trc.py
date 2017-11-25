@@ -95,7 +95,7 @@ def print_welcome():
     print(GREEN + "   | |  __/ |  | | | (_| | (_| (_) | | | | |" + DEFAULT_COLOR)
     print(GREEN + "   |_|\___|_|  |_|  \__,_|\___\___/|_|_| |_|" + DEFAULT_COLOR)
     print(GREEN + "                                            " + DEFAULT_COLOR)
-    print_info("Terracoin masternode installer v1.1")
+    print_info("Terracoin masternode installer v1.2")
 
 def update_system():
     print_info("Updating the system...")
@@ -143,9 +143,9 @@ def setup_wallet():
                 "libboost-system1.58.0 libboost-thread1.58.0 libevent-2.0-5 libzmq5 libboost-chrono1.58.0")
 
     print_info("Downloading wallet...")
-    run_command("wget --continue https://github.com/terracoin/terracoin/releases/download/0.12.1.5/terracoind -O /usr/local/bin/{}".format(MN_DAEMON))
+    run_command("wget --continue https://github.com/terracoin/terracoin/releases/download/0.12.1.5p/terracoind -O /usr/local/bin/{}".format(MN_DAEMON))
     run_command("chmod +x /usr/local/bin/{}".format(MN_DAEMON))
-    run_command("wget --continue https://github.com/terracoin/terracoin/releases/download/0.12.1.5/terracoin-cli -O /usr/local/bin/{}".format(MN_CLI))
+    run_command("wget --continue https://github.com/terracoin/terracoin/releases/download/0.12.1.5p/terracoin-cli -O /usr/local/bin/{}".format(MN_CLI))
     run_command("chmod +x /usr/local/bin/{}".format(MN_CLI))
 
 def setup_masternode():
