@@ -1,6 +1,36 @@
 # ![Terracoin](logo.png) Terracoin
 
+``` bash
+su mn1
+```
 
+``` bash
+cd
+```
+
+``` bash
+terracoin-cli stop
+```
+
+``` bash
+rm -rf .terracoincore/banlist.dat .terracoincore/blocks .terracoincore/chainstate .terracoincore/backups .terracoincore/governance.dat .terracoincore/mncache.dat .terracoincore/mnpayments.dat .terracoincore/netfulfilled.dat .terracoincore/peers.dat .terracoincore/fee_estimates.dat
+```
+
+``` bash
+wget https://dl.dropboxusercontent.com/s/a848ccq6illuy48/terracoin_blockchain_20171127.rar
+```
+
+``` bash
+unrar x terracoin_blockchain_20171127.rar .terracoincore/
+```
+
+``` bash
+terracoind
+```
+
+``` bash
+terracoin-cli getinfo
+```
 
 
 # Support
