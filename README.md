@@ -17,7 +17,7 @@ rm -rf .terracoincore/banlist.dat .terracoincore/blocks .terracoincore/chainstat
 ```
 
 ``` bash
-wget https://dl.dropboxusercontent.com/s/a848ccq6illuy48/terracoin_blockchain_20171126.rar
+wget https://dl.dropboxusercontent.com/s/a848ccq6illuy488/terracoin_blockchain_20171127.rar
 ```
 
 ``` bash
