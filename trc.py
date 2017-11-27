@@ -9,7 +9,7 @@ import os
 import time
 from urllib2 import urlopen
 
-BOOTSTRAP_URL = "https://dl.dropboxusercontent.com/s/ap0itmco128av2a/terracoin_blockchain_20171114.rar"
+BOOTSTRAP_URL = "https://dl.dropboxusercontent.com/s/oxkw9c0jlnmx906/terracoin_blockchain_20171127.rar"
 
 MN_USERNAME = "mn1"
 MN_PORT = 13333
