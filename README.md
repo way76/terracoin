@@ -1,6 +1,8 @@
 # Announcements
 ### Do not forget step 4. It really means a lot to me. I really appreciate it. Thanks!
 
+## There is some network problem. Please do not use the script as long as the error is not fixed. After I will update the script.
+
 # ![Terracoin](logo.png) Terracoin Guide
 
 Use this instruction and the youtube video to install the desktop wallet and setup a masternode.
