@@ -9,7 +9,7 @@ import os
 import time
 from urllib2 import urlopen
 
-BOOTSTRAP_URL = "https://dl.dropboxusercontent.com/s/ap0itmco128av2a/terracoin_blockchain_20171114.rar"
+BOOTSTRAP_URL = "https://dl.dropboxusercontent.com/s/ek4e5xwkw6gy6gi/terracoin_blockchain_20171130.rar"
 
 MN_USERNAME = "mn1"
 MN_PORT = 13333
@@ -95,7 +95,7 @@ def print_welcome():
     print(GREEN + "   | |  __/ |  | | | (_| | (_| (_) | | | | |" + DEFAULT_COLOR)
     print(GREEN + "   |_|\___|_|  |_|  \__,_|\___\___/|_|_| |_|" + DEFAULT_COLOR)
     print(GREEN + "                                            " + DEFAULT_COLOR)
-    print_info("Terracoin masternode installer v1.2")
+    print_info("Terracoin masternode installer v1.3")
 
 def update_system():
     print_info("Updating the system...")
