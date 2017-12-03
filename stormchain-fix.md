@@ -10,7 +10,7 @@
 
 1. Start the wallet and wait for the synchronization.
 
-## 2. Fix remote wallet on the VPS (Easier)
+## 2. Fix remote wallet on the VPS (easier option)
 
 ### 2.1 Vultr VPS
 
@@ -28,7 +28,7 @@ The script will ask your rpc username ans password which you can find in `%appda
 
 1. Follow the original guide from 2.2. (Create a new VPS instance and run the setup script again...)
 
-### 2.2 Manual fix
+### 3 Fix remote wallet on the VPS (manual fix)
 
 1. Login to your vps using putty
 1. Login to the masternode account: `su mn1`
