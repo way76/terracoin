@@ -31,12 +31,14 @@ The script will ask your rpc username ans password which you can find in `%appda
 1. Login to your vps using putty
 1. Login to the masternode account: `su mn1`
 1. Stop the masternode and wait around 10-15 seconds: `terracoin-cli stop`
+1. Logout from mn1 using ctrl+d
 1. Download the good wallet:<br>
 ```wget https://github.com/terracoin/terracoin/releases/download/0.12.1.5/terracoind -O /usr/local/bin/terracoind``` and <br>
 ```wget https://github.com/terracoin/terracoin/releases/download/0.12.1.5/terracoin-cli -O /usr/local/bin/terracoin-cli```
+1. Log back to mn1 user: `su mn1`
 1. Go to home directory: `cd`
 1. Remove old files: `rm -rf .terracoincore/banlist.dat .terracoincore/blocks .terracoincore/chainstate .terracoincore/backups .terracoincore/governance.dat .terracoincore/mncache.dat .terracoincore/mnpayments.dat .terracoincore/netfulfilled.dat .terracoincore/peers.dat .terracoincore/fee_estimates.dat`
 1. Start the masternode: `terracoind`
-1. Wait until the wallet fully synced. Check the current block using `terracoin-cli getinfo` and the [explorer](explorer.terracoin.io)
+1. Wait until the wallet fully synced. Check the current block using `terracoin-cli getinfo` and the [explorer](https://explorer.terracoin.io/)
 1. Intall sentinel: [link](https://github.com/terracoin/sentinel). You cannot install programs as mn1 user so you have to logout (ctrl+d) install the programms using `sudo apt-get`. After log back to `mn1` user and go to home directory `cd`.
 1. Start the masternode using your desktop wallet
