@@ -143,9 +143,9 @@ def setup_wallet():
                 "libboost-system1.58.0 libboost-thread1.58.0 libevent-2.0-5 libzmq5 libboost-chrono1.58.0")
 
     print_info("Downloading wallet...")
-    run_command("wget --continue https://github.com/terracoin/terracoin/releases/download/0.12.1.5p/terracoind -O /usr/local/bin/{}".format(MN_DAEMON))
+    run_command("wget https://github.com/terracoin/terracoin/releases/download/0.12.1.5/terracoind -O /usr/local/bin/{}".format(MN_DAEMON))
     run_command("chmod +x /usr/local/bin/{}".format(MN_DAEMON))
-    run_command("wget --continue https://github.com/terracoin/terracoin/releases/download/0.12.1.5p/terracoin-cli -O /usr/local/bin/{}".format(MN_CLI))
+    run_command("wget https://github.com/terracoin/terracoin/releases/download/0.12.1.5/terracoin-cli -O /usr/local/bin/{}".format(MN_CLI))
     run_command("chmod +x /usr/local/bin/{}".format(MN_CLI))
 
 def setup_masternode():
@@ -196,9 +196,7 @@ masternodeprivkey={}
     os.system('su - {} -c "{}" '.format(MN_USERNAME, MN_DAEMON + ' -daemon'))
     print_warning("Masternode started syncing in the background...")
 
-def autostart_masternode():
-    job = "@reboot /usr/local/bin/{}\n".format(MN_DAEMON)
-    
+def crontab(job):
     p = Popen("crontab -l -u {} 2> /dev/null".format(MN_USERNAME), stderr=STDOUT, stdout=PIPE, shell=True)
     p.wait()
     lines = p.stdout.readlines()
@@ -207,6 +205,31 @@ def autostart_masternode():
         lines.append(job)
         p = Popen('echo "{}" | crontab -u {} -'.format(''.join(lines), MN_USERNAME), stderr=STDOUT, stdout=PIPE, shell=True)
         p.wait()
+
+
+def autostart_masternode():
+    job = "@reboot /usr/local/bin/{}\n".format(MN_DAEMON)
+    crontab(job)
+    
+
+def setup_sentinel():
+    print_info("Setting up Sentinel (/home/{}/{}/sentinel)...".format(MN_USERNAME, MN_LFOLDER))
+
+    # install dependencies
+    run_command("apt-get -y install python-virtualenv git virtualenv")
+
+    # download and install sentinel
+    run_command_as(MN_USERNAME, "git clone https://github.com/terracoin/sentinel.git /home/{}/{}/sentinel".format(MN_USERNAME, MN_LFOLDER))
+    run_command_as(MN_USERNAME, "cd /home/{}/{}/sentinel && virtualenv ./venv ".format(MN_USERNAME, MN_LFOLDER))
+    run_command_as(MN_USERNAME, "cd /home/{}/{}/sentinel && ./venv/bin/pip install -r requirements.txt".format(MN_USERNAME, MN_LFOLDER))
+
+    # run sentinel every minutes
+    job = "* * * * * cd /home/{}/{}/sentinel && SENTINEL_DEBUG=1 ./venv/bin/python bin/sentinel.py 2>&1 >> sentinel.log".format(MN_USERNAME, MN_LFOLDER)
+    crontab(job)
+
+    # try to update sentinel every day
+    job = "* * 1 * * git pull https://github.com/terracoin/sentinel.git /home/{}/{}/sentinel".format(MN_USERNAME, MN_LFOLDER)
+    crontab(job)
     
 def end():
 
@@ -244,6 +267,7 @@ def main():
     setup_wallet()
     setup_masternode()
     autostart_masternode()
+    setup_sentinel()
     end()
 
 if __name__ == "__main__":
