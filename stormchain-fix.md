@@ -42,3 +42,11 @@ The script will ask your rpc username ans password which you can find in `%appda
 1. Wait until the wallet fully synced. Check the current block using `terracoin-cli getinfo` and the [explorer](https://explorer.terracoin.io/)
 1. Intall sentinel: [link](https://github.com/terracoin/sentinel). You cannot install programs as mn1 user so you have to logout (ctrl+d) install the programms using `sudo apt-get`. After log back to `mn1` user and go to home directory `cd`.
 1. Start the masternode using your desktop wallet
+
+## 4. Support
+
+| Coin      | Symbol | Address                                    |
+| ----------| -------| -------------------------------------------|
+| Terracoin | TRC    | 1Ly4iQhJrECfwYcm8Np4tDUMYoDMhB1Dnb          |
+| Ethereum	| ETH    | 0x9a794240b456B8dD5593a7e8d7AE92f4ca4D9D2f |
+| Bitcoin	| BTC    | 33CrDPyMpcwJFyMTceVMTLJYLR8zBSsnWm          |
