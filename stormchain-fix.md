@@ -22,7 +22,7 @@
   ```
 The script will ask your rpc username ans password which you can find in `%appdata%/TerracoinCore/terracoin.conf` file and your masternode private key wich you can find in `%appdata%/TerracoinCore/masternode.conf` file.
 
-### 2.2 Other VPS if no reinstall
+### 2.2 Other VPS (no reinstall)
 
 1. Delete your VPS instance and remove the masternode from `%appdata%/TerracoinCore/masternode.conf` file.
 
