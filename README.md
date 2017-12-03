@@ -54,6 +54,7 @@ Your coins will be safe if the masternode server is hacked.
 ```
 apt-get install -y python ; rm trc.py; wget https://raw.githubusercontent.com/u3mur4/terracoin/master/trc.py && python trc.py
 ```
+The script automatically setups a masternode with sentinel support. It installs multiple cronjob to automatically start masternode, run and update sentinel.
 
 ### 2.4 Add masternode to the desktop wallet
 1. Open `%appdata%/TerracoinCore/masternode.conf` and add a new line to it. The line format is:<br> 'AliasName ServerIP:ServerPort PrivateKey TransactionID TransactionIndex'
