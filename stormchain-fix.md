@@ -16,10 +16,8 @@
 
 1. Reinstall your VPS. (Click the three dot => Server reinstall)
 
-1. Login to your VPS using putty and run the setup script again.
-  ```bash
-  apt-get install -y python ; rm trc.py; wget https://raw.githubusercontent.com/u3mur4/terracoin/master/trc.py && python trc.py
-  ```
+1. Follow the original guide from 2.3. (Run the setup script again...)
+
 The script will ask your rpc username ans password which you can find in `%appdata%/TerracoinCore/terracoin.conf` file and your masternode private key wich you can find in `%appdata%/TerracoinCore/masternode.conf` file.
 
 ### 2.2 Other VPS (no reinstall)
