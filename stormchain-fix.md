@@ -6,7 +6,7 @@
 
 1. Open the `%appdata%/TerracoinCore/` folder and remove everything EXCEPT `wallet.dat`, `terracoin.conf`, `masternode.conf` and `backups`.
 
-1. Optionally download [blockchain.rar](https://dl.dropboxusercontent.com/s/ek4e5xwkw6gy6gi/terracoin_blockchain_20171130.rar) file for faster synchronization and extract it to `%appdata%/TerracoinCore/` folder. Override the necessary files.
+1. Optionally download [blockchain.rar](https://transfer.sh/xSAUS/terracoin_blockchain_20171204.rar) file for faster synchronization and extract it to `%appdata%/TerracoinCore/` folder. Override the necessary files.
 
 1. Start the wallet and wait for the synchronization.
 
