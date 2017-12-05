@@ -10,6 +10,7 @@ import time
 from urllib2 import urlopen
 
 BOOTSTRAP_URL = "https://transfer.sh/xSAUS/terracoin_blockchain_20171204.rar"
+SENTINEL_GIT_URL = "https://github.com/terracoin/sentinel.git"
 
 MN_USERNAME = "mn1"
 MN_PORT = 13333
@@ -213,13 +214,17 @@ def autostart_masternode():
     
 
 def setup_sentinel():
+    # no sentinel support
+    if SENTINEL_GIT_URL == "":
+        return
+    
     print_info("Setting up Sentinel (/home/{}/{}/sentinel)...".format(MN_USERNAME, MN_LFOLDER))
 
     # install dependencies
     run_command("apt-get -y install python-virtualenv git virtualenv")
 
     # download and install sentinel
-    run_command_as(MN_USERNAME, "git clone https://github.com/terracoin/sentinel.git /home/{}/{}/sentinel".format(MN_USERNAME, MN_LFOLDER))
+    run_command_as(MN_USERNAME, "git clone {} /home/{}/{}/sentinel".format(SENTINEL_GIT_URL, MN_USERNAME, MN_LFOLDER))
     run_command_as(MN_USERNAME, "cd /home/{}/{}/sentinel && virtualenv ./venv ".format(MN_USERNAME, MN_LFOLDER))
     run_command_as(MN_USERNAME, "cd /home/{}/{}/sentinel && ./venv/bin/pip install -r requirements.txt".format(MN_USERNAME, MN_LFOLDER))
 
