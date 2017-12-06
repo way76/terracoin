@@ -41,7 +41,7 @@ Your coins will be safe if the masternode server is hacked.
 1. Backup `%appdata%/TerracoinCore/wallet.dat` file. This contains your coins. DO NOT LOSE IT!
 
 ### 2.2 Create VPS server
-1. Register on [vultr](https://www.vultr.com/?ref=7205683). (or optionaly [DigitalOcean](https://m.do.co/c/93892c483019)) (do not forget to verify your email) (if you are using some shity vps provider and you get errors I can't help!)
+1. Register on [vultr](https://www.vultr.com/?ref=7205683). (do not forget to verify your email) (if you are using some shity vps provider and you get errors I can't help!)
 1. Send some money (10$ is enough for two months) to your account to deploy a server. (1 server cost 5$/mo, you can pay with bitcoin on vultr)
 1. Deploy a new server.
     - Server Type: Ubuntu 16.04
