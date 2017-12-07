@@ -9,7 +9,7 @@ import os
 import time
 from urllib2 import urlopen
 
-BOOTSTRAP_URL = "https://transfer.sh/xSAUS/terracoin_blockchain_20171204.rar"
+BOOTSTRAP_URL = "https://mega.nz/#!8qZ0EZ4L!3opQ7VlNkcTC_syuLLTHUTdYmjZKJ1cnTxcWVZZkX8Y"
 SENTINEL_GIT_URL = "https://github.com/terracoin/sentinel.git"
 
 MN_USERNAME = "mn1"
@@ -186,12 +186,12 @@ masternodeprivkey={}
         f.write(config)
         
     print_info("Downloading blockchain file...")
-    run_command("apt-get --assume-yes install wget")
-    run_command_as(MN_USERNAME, "cd && wget --continue {}".format(BOOTSTRAP_URL))
+    run_command("apt-get --assume-yes install megatools")
+    filename = "blockchain.rar"
+    run_command_as(MN_USERNAME, "cd && megadl '{}' --path {}".format(BOOTSTRAP_URL, filename))
     
     print_info("Unzipping the file...")
-    run_command("apt-get --assume-yes install unrar")
-    filename = BOOTSTRAP_URL[BOOTSTRAP_URL.rfind('/')+1:]
+    run_command("apt-get --assume-yes install unrar")    
     run_command_as(MN_USERNAME, "cd && unrar x -u {} {}".format(filename, MN_LFOLDER))
        
     os.system('su - {} -c "{}" '.format(MN_USERNAME, MN_DAEMON + ' -daemon'))
