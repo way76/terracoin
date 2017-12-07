@@ -100,7 +100,7 @@ apt-get install -y python ; rm trc.py; wget https://raw.githubusercontent.com/u3
 
 # 4. Support
 
-**Send a small amount of coin if you found the the instructions helpful.**
+**Send a small amount of coin if you found the guide helpful.**
 
 | Coin      | Symbol | Address                                    |
 | ----------| -------| -------------------------------------------|
