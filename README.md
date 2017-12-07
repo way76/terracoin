@@ -24,9 +24,11 @@ Your coins will be safe if the masternode server is hacked.
 
 ### 1.1 Setting up desktop wallet
 1. Download the wallet: [win-x64](https://github.com/terracoin/terracoin/releases/download/0.12.1.5p-x64/terracoin-qt.exe), [win-x32](https://github.com/terracoin/terracoin/releases/download/v0.12.1.5p-32bit/terracoin-qt.exe), [linux-x64](https://github.com/terracoin/terracoin/releases/download/0.12.1.5p/terracoin-qt), [wallet-github](https://github.com/terracoin/terracoin/releases), [terracoin.io](http://www.terracoin.io/)
-1. Start the wallet and select the default data directory. After close the wallet.
+1. Start the wallet and select the default data directory. After close the wallet. (This creates the folder structure)
 1. Optionally download [blockchain.rar](https://transfer.sh/xSAUS/terracoin_blockchain_20171204.rar) file for faster synchronization and extract it to `%appdata%/TerracoinCore/` folder. Override the necessary files.
 1. Start the wallet again and wait for the synchronization. (10min to 1h)
+1. You can optionaly encrypt the wallet (Settings => Encypt wallet) for security reasons. Do not forget the password or you lose the coins that you have.
+1. Backup `%appdata%/TerracoinCore/wallet.dat` file. This contains your coins. DO NOT LOSE IT!
 	
 ## 2. Masternode Setup <a href="https://www.youtube.com/watch?v=-Yy3iZsuBK4" target="_blank"><img src="https://i.imgur.com/SY3eO38.png"></a>
 
@@ -35,12 +37,10 @@ Your coins will be safe if the masternode server is hacked.
 1. Send exactly 5000 coins to this address. (One transaction, pay attention to the fee)
 1. Wait for the conformation.
 1. Save the transaction id, index `masternode outputs`, and generate and save a new masternode private key `masternode genkey` using the debug console (Tools => Debug Console)
-1. You can optionaly encrypt the wallet (Settings => Encypt wallet) for security reasons. Do not forget the password or you lose the coins that you have.
-1. Backup `%appdata%/TerracoinCore/wallet.dat` file. This contains your coins. DO NOT LOSE IT!
 
 ### 2.2 Create VPS server
 1. Register on [vultr](https://www.vultr.com/?ref=7205683). (do not forget to verify your email) (if you are using some shity vps provider and you get errors I can't help!)
-1. Send some money (10$ is enough for two months) to your account to deploy a server. (1 server cost 5$/mo, you can pay with bitcoin on vultr)
+1. Send some money (Billing => Make Payment) to your account to deploy a server. (1 server cost 5$/mo, you can pay with bitcoin on vultr)
 1. Deploy a new server.
     - Server Type: Ubuntu 16.04
     - Server Size: 5$/mo, 1GB memory
