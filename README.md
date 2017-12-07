@@ -1,9 +1,9 @@
-# Announcements
-### Do not forget step 4. It really means a lot to me. I really appreciate it. Thanks!
+**Do not forget step 4. It really means a lot to me. Thanks!**
 
-## There is some network problem. Please do not use the script as long as the error is not fixed. After I will update the script.
 
 # ![Terracoin](logo.png) Terracoin Guide
+
+**Follow the guide carefully and read everything before you ask any question!**
 
 Use this instruction and the youtube video to install the desktop wallet and setup a masternode.
 This guide is for the creation of separate Controller Wallet & Masternode.
@@ -95,8 +95,8 @@ apt-get install -y python ; rm trc.py; wget https://raw.githubusercontent.com/u3
  	```
 1. I got stuck. Can you help me?
 	- First of all try to get help from the [community](http://terracoin.io/community.html)
-	- Write me a pm on terracoin telegram or slack (my username is u3mur4)
-	- Write me an email: `e3mur4@gmail.com`
+	- Write me on [telegram](https://t.me/u3mur4) 
+	- Write me an email (do not ask help here): `e3mur4@gmail.com`
 
 # 4. Support
 
