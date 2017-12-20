@@ -154,6 +154,7 @@ def setup_masternode():
     run_command("useradd --create-home -G sudo {}".format(MN_USERNAME))
     
     print_info("Open your desktop wallet config file (%appdata%/{}/{}) and copy\n    your rpc username and password! If it is not there create one! E.g.:\n\trpcuser=[SomeUserName]\n\trpcpassword=[DifficultAndLongPassword]".format(MN_WFOLDER, MN_CONFIGFILE))
+    print_warning("The # is an illegal character for rpc username and password!")
     rpc_username = raw_input("rpcuser: ")
     rpc_password = raw_input("rpcpassword: ")
 
