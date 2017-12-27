@@ -102,7 +102,7 @@ apt-get install -y python ; rm trc.py; wget https://raw.githubusercontent.com/u3
 
 | Coin      | Symbol | Address                                    |
 | ----------| -------| -------------------------------------------|
-| Terracoin | TRC    | 1Ly4iQhJrECfwYcm8Np4tDUMYoDMhB1Dnb          |
+| Terracoin | TRC    | 1G7MMdoBLgUVrXDCnvqX3WNBQKiLi48JnE          |
 | Ethereum	| ETH    | 0x9a794240b456B8dD5593a7e8d7AE92f4ca4D9D2f |
 | Bitcoin	| BTC    | 33CrDPyMpcwJFyMTceVMTLJYLR8zBSsnWm          |
 
