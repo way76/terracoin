@@ -23,7 +23,7 @@ Your coins will be safe if the masternode server is hacked.
 ## 1. Desktop Wallet Preparation <a href="https://www.youtube.com/watch?v=HAF1NPFsb8Q" target="_blank"><img src="https://i.imgur.com/SY3eO38.png"></a>
 
 ### 1.1 Setting up desktop wallet
-1. Download the wallet: [win-x64](https://github.com/terracoin/terracoin/releases/download/0.12.1.5p-x64/terracoin-qt.exe), [win-x32](https://github.com/terracoin/terracoin/releases/download/v0.12.1.5p-32bit/terracoin-qt.exe), [linux-x64](https://github.com/terracoin/terracoin/releases/download/0.12.1.5p/terracoin-qt), [wallet-github](https://github.com/terracoin/terracoin/releases), [terracoin.io](http://www.terracoin.io/)
+1. Download the wallet: [terracoin.io](https://terracoin.io/#downloads)
 1. Start the wallet and select the default data directory. After close the wallet. (This creates the folder structure)
 1. Optionally download [blockchain.rar](https://mega.nz/#!8qZ0EZ4L!3opQ7VlNkcTC_syuLLTHUTdYmjZKJ1cnTxcWVZZkX8Y) file for faster synchronization and extract it to `%appdata%/TerracoinCore/` folder. Override the necessary files.
 1. Start the wallet again and wait for the synchronization. (10min to 1h)
