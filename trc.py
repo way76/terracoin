@@ -147,7 +147,7 @@ def setup_wallet():
                 "libboost-system1.58.0 libboost-thread1.58.0 libevent-2.0-5 libzmq5 libboost-chrono1.58.0")
 
     print_info("Downloading wallet...")
-    run_command("wget https://terracoin.io/bin/terracoin-core-current/terracoin-{}-x86_64-linux-gnu.tar.gz -O /tmp.format(TERRACOIN_VERSION))
+    run_command("wget https://terracoin.io/bin/terracoin-core-current/terracoin-{}-x86_64-linux-gnu.tar.gz -P /tmp".format(TERRACOIN_VERSION))
     run_command("cd /tmp && tar xzf terracoin-{}-x86_64-linux-gnu.tar.gz".format(TERRACOIN_VERSION))
     run_command("cp /tmp/terracoin-{}/bin/terracoind /usr/local/bin/{}".format(TERRACOIN_VERSION, MN_DAEMON))
     run_command("cp /tmp/terracoin-{}/bin/terracoin-cli /usr/local/bin/{}".format(TERRACOIN_VERSION, MN_CLI))
