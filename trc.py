@@ -13,7 +13,7 @@ BOOTSTRAP_URL = "https://mega.nz/#!8qZ0EZ4L!3opQ7VlNkcTC_syuLLTHUTdYmjZKJ1cnTxcW
 SENTINEL_GIT_URL = "https://github.com/terracoin/sentinel.git"
 
 # Maybe pull this from online, setup a file in bin on terracoin.io?
-TERRACOIN_VERSION = "0.12.1"
+TERRACOIN_VERSION = "0.12.2"
 
 MN_USERNAME = "mn1"
 MN_PORT = 13333
