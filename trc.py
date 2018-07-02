@@ -211,6 +211,35 @@ def crontab(job):
 def autostart_masternode():
     job = "@reboot /usr/local/bin/{}".format(MN_DAEMON)
     crontab(job)
+
+def rotate_logs():
+    print_info("Enable logfile rotating...")
+    f = open('/etc/logrotate.d/terracoin_masternode_{}'.format(MN_USERNAME),'w')
+    f.write('''/home/{0}/{1}/debug.log {{
+    daily
+    missingok
+    rotate 14
+    size 10M
+    compress
+    notifempty
+    create 0640 {0} {0}
+    postrotate
+        su - {0} -c "{2} stop && sleep 10 && {3} -daemon"
+    endscript
+}}
+
+/home/{0}/{1}/sentinel/sentinel.log {{
+    daily
+    missingok
+    rotate 14
+    size 10M
+    compress
+    notifempty
+    create 0640 {0} {0}
+}}
+'''.format(MN_USERNAME, MN_LFOLDER, MN_CLI, MN_DAEMON))
+    f.close()
+
     
 
 def setup_sentinel():
@@ -271,6 +300,7 @@ def main():
     setup_wallet()
     setup_masternode()
     autostart_masternode()
+    rotate_logs()
     setup_sentinel()
     end()
 
