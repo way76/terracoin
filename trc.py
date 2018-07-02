@@ -177,6 +177,7 @@ daemon=1
 logtimestamps=1
 mnconflock=1
 masternode=1
+disablewallet=1
 externalip={}:{}
 masternodeprivkey={}
 {}""".format(rpc_username, rpc_password, MN_RPCPORT, MN_PORT, SERVER_IP, MN_PORT, masternode_priv_key, MN_NODELIST)
