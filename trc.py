@@ -61,34 +61,37 @@ def remove_lines(lines):
         sys.stdout.write(CURSOR_UP_ONE + '\r' + ERASE_LINE)
         sys.stdout.flush()
 
-def run_command_as(user, command):
-    run_command('su - {} -c "{}" '.format(user, command))
+def run_command_as(user, command, remove=True):
+    run_command('su - {} -c "{}" '.format(user, command), remove)
 
-def run_command(command):
-    out = Popen(command, stderr=STDOUT, stdout=PIPE, shell=True)
-    lines = []
-    
-    while True:
-        line = out.stdout.readline()
-        if (line == ""):
-            break
-        
-        # remove previous lines     
-        remove_lines(lines)
-        
-        w, h = get_terminal_size()
-        lines.append(line.strip().encode('string_escape')[:w-3] + "\n")
-        if(len(lines) >= 9):
-            del lines[0]
+def run_command(command, remove=True):
+    if remove:
+    	out = Popen(command, stderr=STDOUT, stdout=PIPE, shell=True)
+    	lines = []
+    	
+    	while True:
+    	    line = out.stdout.readline()
+    	    if (line == ""):
+    	        break
+    	    
+    	    # remove previous lines     
+    	    remove_lines(lines)
+    	    
+    	    w, h = get_terminal_size()
+    	    lines.append(line.strip().encode('string_escape')[:w-3] + "\n")
+    	    if(len(lines) >= 9):
+    	        del lines[0]
 
-        # print lines again
-        for l in lines:
-            sys.stdout.write('\r')
-            sys.stdout.write(l)
-        sys.stdout.flush()
+    	    # print lines again
+    	    for l in lines:
+    	        sys.stdout.write('\r')
+    	        sys.stdout.write(l)
+    	    sys.stdout.flush()
 
-    remove_lines(lines) 
-    out.wait()
+    	remove_lines(lines) 
+    	out.wait()
+    else:
+	os.system(command)
 
 def print_welcome():
     os.system('clear')
@@ -193,7 +196,7 @@ masternodeprivkey={}
     print_info("Downloading blockchain file...")
     run_command("apt-get --assume-yes install megatools")
     filename = "blockchain.rar"
-    run_command_as(MN_USERNAME, "cd && megadl '{}' --path {}".format(BOOTSTRAP_URL, filename))
+    run_command_as(MN_USERNAME, "cd && megadl '{}' --path {}".format(BOOTSTRAP_URL, filename), False)
     
     print_info("Unzipping the file...")
     run_command("apt-get --assume-yes install unrar")    
