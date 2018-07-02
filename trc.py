@@ -117,15 +117,6 @@ def check_root():
         print_error("This program requires root privileges.  Run as root user.")
         sys.exit(-1)
 
-def secure_server():
-    print_info("Securing server...")
-    run_command("apt-get --assume-yes install ufw")
-    run_command("ufw allow OpenSSH")
-    run_command("ufw allow {}".format(MN_PORT))
-    run_command("ufw default deny incoming")
-    run_command("ufw default allow outgoing")
-    run_command("ufw --force enable")
-
 def setup_wallet():
     print_info("Allocating swap...")
     run_command("fallocate -l {} /swapfile".format(MN_SWAPSIZE))
@@ -276,7 +267,6 @@ def main():
     print_welcome()
     check_root()
     update_system()
-    secure_server()
     setup_wallet()
     setup_masternode()
     autostart_masternode()

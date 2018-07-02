@@ -54,7 +54,6 @@ apt-get install -y python ; rm trc.py; wget https://raw.githubusercontent.com/u3
 ```
 #### What does the script?
 - updates the system
-- secure the server (setups a firewall)
 - download and install the wallet
 - configure the masternode with rpcusername, rpcpassword and mn's private key (the mn is running under mn1 username)
 - download the boostrap file for faster synchronization
