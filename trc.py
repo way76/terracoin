@@ -200,6 +200,7 @@ def crontab(job):
     p = Popen("crontab -l -u {} 2> /dev/null".format(MN_USERNAME), stderr=STDOUT, stdout=PIPE, shell=True)
     p.wait()
     lines = p.stdout.readlines()
+    job = job + "\n"
     if job not in lines:
         print_info("Cron job doesn't exist yet, adding it to crontab")
         lines.append(job)
@@ -208,7 +209,7 @@ def crontab(job):
 
 
 def autostart_masternode():
-    job = "@reboot /usr/local/bin/{}\n".format(MN_DAEMON)
+    job = "@reboot /usr/local/bin/{}".format(MN_DAEMON)
     crontab(job)
     
 
