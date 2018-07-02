@@ -60,6 +60,7 @@ apt-get install -y python ; rm trc.py; wget https://raw.githubusercontent.com/u3
 - download the boostrap file for faster synchronization
 - setup sentinel if it is available
 - setup some cronjob for automatized jobs (autostart masternode on system start, run sentinel every minutes, etc...)
+- allocate 2GB swapfile and mount permanently
 
 ### 2.4 Add masternode to the desktop wallet
 1. Open `%appdata%/TerracoinCore/masternode.conf` and add a new line to it. The line format is:<br> 'AliasName ServerIP:ServerPort PrivateKey TransactionID TransactionIndex'
