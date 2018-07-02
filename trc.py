@@ -9,7 +9,7 @@ import os
 import time
 from urllib2 import urlopen
 
-BOOTSTRAP_URL = "https://mega.nz/#!8qZ0EZ4L!3opQ7VlNkcTC_syuLLTHUTdYmjZKJ1cnTxcWVZZkX8Y"
+BOOTSTRAP_URL = "https://mega.nz/#!FmAG2Y7C!eihPuxfeXT48yr74H-D47dSTJLbO5yLL8xYsBS7Lx5Q"
 SENTINEL_GIT_URL = "https://github.com/terracoin/sentinel.git"
 
 # Maybe pull this from online, setup a file in bin on terracoin.io?
