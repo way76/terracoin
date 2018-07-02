@@ -187,7 +187,7 @@ masternodeprivkey={}
     print_info("Downloading blockchain file...")
     run_command("apt-get --assume-yes install megatools")
     filename = "blockchain.rar"
-    run_command_as(MN_USERNAME, "cd && megadl '{}' --path {}".format(BOOTSTRAP_URL, filename), False)
+    run_command_as(MN_USERNAME, "cd && megadl '{}' --path {} 2>/dev/null".format(BOOTSTRAP_URL, filename), False)
     
     print_info("Unzipping the file...")
     run_command("apt-get --assume-yes install unrar")    
