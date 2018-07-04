@@ -199,8 +199,9 @@ masternodeprivkey={}
     run_command_as(MN_USERNAME, "cd && megadl '{}' --path {} 2>/dev/null".format(BOOTSTRAP_URL, filename), False)
     
     print_info("Unzipping the file...")
-    run_command("apt-get --assume-yes install unrar")    
-    run_command_as(MN_USERNAME, "cd && unrar x -u {} {}".format(filename, MN_LFOLDER))
+    run_command_as(MN_USERNAME, "cd && rm -rf {0}/blocks {0}/chainstate".format(MN_LFOLDER))
+    run_command("apt-get --assume-yes install unrar")
+    run_command_as(MN_USERNAME, "cd && unrar x -o+ {} {}".format(filename, MN_LFOLDER))
        
     os.system('su - {} -c "{}" '.format(MN_USERNAME, MN_DAEMON + ' -daemon'))
     print_warning("Masternode started syncing in the background...")
