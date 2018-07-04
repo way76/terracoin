@@ -13,7 +13,7 @@ BOOTSTRAP_URL = "https://mega.nz/#!FmAG2Y7C!eihPuxfeXT48yr74H-D47dSTJLbO5yLL8xYs
 SENTINEL_GIT_URL = "https://github.com/terracoin/sentinel.git"
 
 # Maybe pull this from online, setup a file in bin on terracoin.io?
-TERRACOIN_VERSION = "0.12.2"
+TERRACOIN_WALLET = "https://terracoin.io/bin/terracoin-core-current/terracoin-LATEST-x86_64-linux-gnu.tar.gz"
 
 MN_USERNAME = "mn1"
 MN_PORT = 13333
@@ -141,10 +141,10 @@ def setup_wallet():
                 "libboost-system1.58.0 libboost-thread1.58.0 libevent-2.0-5 libzmq5 libboost-chrono1.58.0")
 
     print_info("Downloading wallet...")
-    run_command("wget https://terracoin.io/bin/terracoin-core-current/terracoin-{}-x86_64-linux-gnu.tar.gz -P /tmp".format(TERRACOIN_VERSION))
-    run_command("cd /tmp && tar xzf terracoin-{}-x86_64-linux-gnu.tar.gz".format(TERRACOIN_VERSION))
-    run_command("cp /tmp/terracoin-{}/bin/terracoind /usr/local/bin/{}".format(TERRACOIN_VERSION, MN_DAEMON))
-    run_command("cp /tmp/terracoin-{}/bin/terracoin-cli /usr/local/bin/{}".format(TERRACOIN_VERSION, MN_CLI))
+    run_command("wget {} -O /tmp/wallet.tar.gz".format(TERRACOIN_WALLET ))
+    run_command("cd /tmp && tar xzf wallet.tar.gz")
+    run_command("find /tmp -name {} -exec cp {{}} /usr/local/bin \;".format(MN_DAEMON))
+    run_command("find /tmp -name {} -exec cp {{}} /usr/local/bin \;".format(MN_CLI))
 
 def setup_masternode():
     print_info("Setting up masternode...")
