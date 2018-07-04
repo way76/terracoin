@@ -2,6 +2,7 @@
 from subprocess import Popen,PIPE,STDOUT
 import collections
 import os
+import os.path
 import sys
 import time
 import math
@@ -147,20 +148,28 @@ def setup_wallet():
     run_command("find /tmp -name {} -exec cp {{}} /usr/local/bin \;".format(MN_CLI))
 
 def setup_masternode():
+    global PRIVATE_KEY
     print_info("Setting up masternode...")
     run_command("useradd --create-home -G sudo {}".format(MN_USERNAME))
-    
-    print_info("Open your desktop wallet config file (%appdata%/{}/{}) and copy\n    your rpc username and password! If it is not there create one! E.g.:\n\trpcuser=[SomeUserName]\n\trpcpassword=[DifficultAndLongPassword]".format(MN_WFOLDER, MN_CONFIGFILE))
-    print_warning("The # is an illegal character for rpc username and password!")
-    rpc_username = raw_input("rpcuser: ")
-    rpc_password = raw_input("rpcpassword: ")
 
-    print_info("Open your wallet console (Tools => Debug Console) and create a new masternode private key: masternode genkey")
-    masternode_priv_key = raw_input("masternodeprivkey: ")
-    global PRIVATE_KEY
-    PRIVATE_KEY = masternode_priv_key
+    need_credential = True
+    if os.path.isfile("/usr/local/bin/{}".format(MN_DAEMON)) and os.path.isfile("/usr/local/bin/{}".format(MN_CLI)) and os.path.isfile("/home/{}/{}/{}".format(MN_USERNAME, MN_LFOLDER, MN_CONFIGFILE)):
+        need_credential = False
+        run_command_as(MN_USERNAME, "{} stop".format(MN_CLI))
+        PRIVATE_KEY = "using the previous private key"
+        print_info("Using the previous rpc username, prc password and private key.")
+
+    if need_credential:
+        print_info("Open your desktop wallet config file (%appdata%/{}/{}) and copy\n    your rpc username and password! If it is not there create one! E.g.:\n\trpcuser=[SomeUserName]\n\trpcpassword=[DifficultAndLongPassword]".format(MN_WFOLDER, MN_CONFIGFILE))
+        print_warning("The # is an illegal character for rpc username and password!")
+        rpc_username = raw_input("rpcuser: ")
+        rpc_password = raw_input("rpcpassword: ")
     
-    config = """rpcuser={}
+        print_info("Open your wallet console (Tools => Debug Console) and create a new masternode private key: masternode genkey")
+        masternode_priv_key = raw_input("masternodeprivkey: ")
+        PRIVATE_KEY = masternode_priv_key
+        
+        config = """rpcuser={}
 rpcpassword={}
 rpcallowip=127.0.0.1
 rpcport={}
@@ -175,14 +184,14 @@ disablewallet=1
 externalip={}:{}
 masternodeprivkey={}
 {}""".format(rpc_username, rpc_password, MN_RPCPORT, MN_PORT, SERVER_IP, MN_PORT, masternode_priv_key, MN_NODELIST)
-
-    # creates folder structure
-    run_command_as(MN_USERNAME, "mkdir -p /home/{}/{}/".format(MN_USERNAME, MN_LFOLDER))
-    run_command_as(MN_USERNAME, "touch /home/{}/{}/{}".format(MN_USERNAME, MN_LFOLDER, MN_CONFIGFILE))
     
-    print_info("Saving config file...")
-    with open('/home/{}/{}/{}'.format(MN_USERNAME, MN_LFOLDER, MN_CONFIGFILE), 'w') as f:
-        f.write(config)
+        # creates folder structure
+        run_command_as(MN_USERNAME, "mkdir -p /home/{}/{}/".format(MN_USERNAME, MN_LFOLDER))
+        run_command_as(MN_USERNAME, "touch /home/{}/{}/{}".format(MN_USERNAME, MN_LFOLDER, MN_CONFIGFILE))
+        
+        print_info("Saving config file...")
+        with open('/home/{}/{}/{}'.format(MN_USERNAME, MN_LFOLDER, MN_CONFIGFILE), 'w') as f:
+            f.write(config)
         
     print_info("Downloading blockchain file...")
     run_command("apt-get --assume-yes install megatools")
