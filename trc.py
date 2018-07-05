@@ -233,9 +233,7 @@ def rotate_logs():
     compress
     notifempty
     create 0640 {0} {0}
-    postrotate
-        su - {0} -c "{2} stop && sleep 10 && {3} -daemon"
-    endscript
+    copytruncate
 }}
 
 /home/{0}/{1}/sentinel/sentinel.log {{
