@@ -16,7 +16,7 @@ SENTINEL_GIT_URL = "https://github.com/terracoin/sentinel.git"
 # Maybe pull this from online, setup a file in bin on terracoin.io?
 TERRACOIN_WALLET = "https://terracoin.io/bin/terracoin-core-current/terracoin-LATEST-x86_64-linux-gnu.tar.gz"
 
-MN_USERNAME = "terracoin-mn1"
+MN_USERNAME = "terracoin-mn2"
 MN_PORT = 13333
 MN_RPCPORT = 22350
 MN_NODELIST = ""
